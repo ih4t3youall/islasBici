@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14354422413440" configfile="/jIslasJBiciE4/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="registracion.xhtml" x="122" y="1330" id="pf143663642228910" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf143663642229012 pf143663649443827 pf14409564934940 pf14409565137681 pf14409691898242 pf14435689867780 pf14435689867781 pf14435690139494" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="178" id="pf143663642229014" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf143663642229012" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="errorGeneral.xhtml" x="338" y="562" id="pf143663643953224" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf143663649443827" path="/errorGeneral.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/userHome.xhtml" x="338" y="946" id="pf143666785446932" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14409565137681" path="/userHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminPages/adminHome.xhtml" x="338" y="1330" id="pf14367302729461" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14409564934940" path="/adminPages/adminHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminPages/modificarBicicleta.xhtml" x="338" y="1714" id="pf14409691898343" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14409691898242" path="/adminPages/modificarBicicleta.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminPages/administrarBicicletas.xhtml" x="338" y="2098" id="pf14435689867792" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14435689867780" path="/adminPages/administrarBicicletas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminPages/administrarUsuarios.xhtml" id="pf14435689867793" referenceLink="//@navigationRule.0/@navigationCase.7/@toViewId|" inlinks="pf14435689867781" path="/adminPages/administrarUsuarios.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminPages/administrarEstacion.xhtml" id="pf14435690139495" referenceLink="//@navigationRule.0/@navigationCase.7/@toViewId|" inlinks="pf14435690139494" path="/adminPages/administrarEstacion.xhtml"/>
+  <links id="pf143663642229012" target="pf143663642229014" source="pf143663642228910" outcome="login"/>
+  <links id="pf143663649443827" target="pf143663643953224" source="pf143663642228910" outcome="fracaso"/>
+  <links id="pf14409564934940" target="pf14367302729461" source="pf143663642228910" outcome="admin"/>
+  <links id="pf14409565137681" target="pf143666785446932" source="pf143663642228910" outcome="usuario"/>
+  <links id="pf14409691898242" target="pf14409691898343" source="pf143663642228910" outcome="modificarBicicleta"/>
+  <links id="pf14435689867780" target="pf14435689867792" source="pf143663642228910" outcome="administrarBicicletas"/>
+  <links id="pf14435689867781" target="pf14435689867793" source="pf143663642228910" outcome="administrarUsuarios"/>
+  <links id="pf14435690139494" target="pf14435690139495" source="pf143663642228910" outcome="administrarEstacion"/>
+</pageflow:Pageflow>

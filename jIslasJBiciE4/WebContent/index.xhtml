@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<title>jBici</title>
+	<link rel="stylesheet"
+		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-darkness/jquery-ui.css" />
+	
+</h:head>
+<h:body>
+	<p:outputLabel>Bienvenido a jBici</p:outputLabel>
+	<h:form id="loginForm">
+		<p:outputLabel value="Datos de ingreso:" />
+		<p:messages id="Error" showDetail="true" autoUpdate="true"
+			closable="true" />
+		<p:fieldset>
+			<p:outputLabel value="Nombre de Usuario:" for="userIT" />
+			<p:inputText id="userIT" value="#{login.userId}" required="true"
+				pt:placeholder="Introduzca cuenta" pt:autofocus="autofocus" />
+			<p:outputLabel value="Contrasenia:" for="passIT" />
+			<p:password id="passIT" pt:placeholder="Introduzca Clave"
+				value="#{login.password}" required="true" />
+			<p:commandButton id="ingresoCB" value="Ingresar"
+				action="#{login.ingresar}">
+			</p:commandButton>
+		</p:fieldset>
+	</h:form>
+	<h:form>
+		<p:fieldset>
+			<p:commandButton id="crearMod" value="Crear Modelo de prueba"
+				action="#{login.crearModelo}">
+			</p:commandButton>
+		</p:fieldset>
+
+		<ul>
+			<li><h:button outcome="/faces/registracion.xhtml"
+					value="Registrarse" /></li>
+		</ul>
+	</h:form>
+</h:body>
+</html>

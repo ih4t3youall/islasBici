@@ -1,0 +1,22 @@
+#map {
+	width: 600px;
+	height: 350px;
+}
+
+.gBubble
+    {
+        color:black;
+        font-family:Tahoma, Geneva, sans-serif;
+        font-size:12px;    
+    }
+.menuYContenido{
+	 position: relative;
+	 width: 100%;
+	 rigth:0px;
+	
+} 
+.contenido{
+	position: absolute;
+	width: 100%;
+	rigth: 0px
+}

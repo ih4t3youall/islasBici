@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<title><ui:insert name="titulo">
+				Titulo general
+			</ui:insert></title>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+	<link rel="stylesheet"
+		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-darkness/jquery-ui.css" />
+	<h:outputScript name="js/jquery.js" />
+	<h:outputScript name="js/script.js" />
+
+</h:head>
+<h:body>
+	<h:panelGroup layout="block" class="menuYContenido">
+		<h:panelGroup layout="block" class="menu">
+			<h:form>
+				<p:menubar id="menuBar">
+					<p:menuitem value="Ayuda" url="#" />
+					<p:menuitem value="Mi perfil" action="modificarUsuario.xhtml" />
+					<p:menuitem value="Alquilar Bicicleta" url="#" />
+					<p:menuitem value="Denunciar Bicicleta" url="#" />
+					<p:menuitem value="Buscar plazas" onclick="loadScript()" />
+					<p:menuitem id="menuLoguot" action="#{login.logout}" value="Salir"
+						icon="ui-icon-extlink" />
+				</p:menubar>
+			</h:form>
+		</h:panelGroup>
+		<h:panelGroup layout="block" class="contenido">
+			<h:form>
+				<ui:insert name="contenido" />
+			</h:form>
+		</h:panelGroup>
+	</h:panelGroup>
+
+</h:body>
+</html>

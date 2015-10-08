@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayoutAdmin.xhtml">
+	<ui:define name="titulo">
+      Registrar Estación
+    </ui:define>
+	<ui:define name="contenido">
+		<p:messages id="Error" showDetail="true" autoUpdate="true"
+			closable="true" />
+		<p:fieldset>
+			<p:outputLabel value="Nombre:" for="nombreIT" />
+			<h:inputText id="nombreIT" value="#{estacionBean.nombre}"
+				required="true" requiredMessage="Por favor ingrese el nombre" />
+				
+			<p:outputLabel value="Dirección:" for="direccionIT" />
+			<h:inputText id="direccionIT" value="#{estacionBean.direccion}"
+				required="true" requiredMessage="Por favor ingrese la dirección" />
+			
+
+			<p:outputLabel value="Latitud de la Ubicación:" for="ubicacionXIT" />
+			<h:inputText id="ubicacionXIT" value="#{estacionBean.ubicacionX}"
+				required="true" requiredMessage="Por favor ingrese la ubicación" disabled="true"/>
+			
+			<p:outputLabel value="Longitud de la Ubicación:" for="ubicacionYIT" />
+			<h:inputText id="ubicacionYIT" value="#{estacionBean.ubicacionY}"
+				required="true" disabled="true"/>
+			<h:button value="Agregar Ubicación" onclick="loadScriptToAddStation()" />
+			<div id="map"></div>		
+			<p:outputLabel value="Estado:" for="estadoSO" />
+			<h:selectOneMenu id="estadoSO" value="#{estacionBean.estado}"
+				required="true" requiredMessage="Por favor ingrese el estado">
+				<f:selectItems value="#{estacionBean.estados}" />
+			</h:selectOneMenu>
+
+			<p:outputLabel value="Cantidad de Estacionamientos:" for="cantEstIT" />
+			<h:inputText id="cantEstIT" value="#{estacionBean.cantidadDeEstacionamientos}"
+				required="true"  pt:type="number" validatorMessage="Formato de número inválido"
+				requiredMessage="Por favor ingrese una cantidad de estacionamientos">				
+			</h:inputText>
+			
+			<p:commandButton id="submit" value="Registrar"
+				action="#{estacionBean.registrar}">
+			</p:commandButton>
+		</p:fieldset>
+	</ui:define>
+</ui:composition>

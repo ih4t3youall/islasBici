@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayoutAdmin.xhtml">
+	<ui:define name="titulo">
+     jBici-Administracion de Bicicletas
+	</ui:define>
+	<ui:define name="contenido">
+		
+		<p:menubar id="altaBici">
+			<p:menuitem value="Agregar Bicicleta"
+				outcome="/faces/adminPages/altaBicicleta.xhtml" />
+		</p:menubar>
+		
+		<p:messages id="Error" showDetail="true" autoUpdate="true"
+			closable="true" />
+
+		<p:dataTable var="bici" value="#{bicicletasBean.bicicletas}"
+			stickyHeader="true" autoUpdate="true">
+			<p:column headerText="Id">
+				<h:outputText value="#{bici.id}" />
+			</p:column>
+			<p:column headerText="Identificador">
+				<h:outputText value="#{bici.identificador}" />
+			</p:column>
+			<p:column headerText="Fecha de Ingreso">
+				<h:outputText value="#{bici.fechaDeIngreso}" />
+			</p:column>
+			<p:column headerText="Estado">
+				<h:outputText value="#{bici.estado.value}" />
+			</p:column>
+
+			<p:column headerText="Estacion">
+				<h:outputText value="#{bici.estacion.nombre}" />
+			</p:column>
+			<p:column headerText="Acciones">
+				<h:commandButton
+					action="#{bicicletaBean.bicicletaSeleccionada(bici)}"
+					value="Modificar" />
+				<h:commandButton actionListener="#{bicicletasBean.eliminar(bici)}"
+					value="Eliminar" />
+			</p:column>
+
+		</p:dataTable>
+
+	</ui:define>
+</ui:composition>

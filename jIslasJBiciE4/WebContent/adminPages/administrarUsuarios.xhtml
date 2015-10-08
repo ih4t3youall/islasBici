@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayoutAdmin.xhtml">
+	<ui:define name="titulo">
+     jBici-Administracion de Usuarios
+	</ui:define>
+	<ui:define name="contenido">
+
+		<p:messages id="Error" showDetail="true" autoUpdate="true"
+			closable="true" />
+		<p:dataTable var="usu" value="#{usuariosBean.usuarios}" 
+			stickyHeader="true" autoUpdate="true">
+			<p:column headerText="Id">
+				<h:outputText value="#{usu.id}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{usu.nombre}" />
+			</p:column>
+			<p:column headerText="Apellido">
+				<h:outputText value="#{usu.apellido}" />
+			</p:column>
+			<p:column headerText="Nombre de Usuario">
+				<h:outputText value="#{usu.userName}" />
+			</p:column>
+			<p:column headerText="DNI">
+				<h:outputText value="#{usu.dni}" />
+			</p:column>
+			<p:column headerText="Estado">
+				<h:outputText value="#{usu.estado}" />
+			</p:column>
+			<p:column headerText="Acciones">
+			    <h:commandButton actionListener="#{usuariosBean.eliminar(usu)}" 
+			    value="Eliminar/Habilitar'}" />				
+			</p:column>
+			
+		</p:dataTable>
+
+	</ui:define>
+</ui:composition>

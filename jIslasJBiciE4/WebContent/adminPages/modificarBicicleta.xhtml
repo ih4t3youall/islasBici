@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayoutAdmin.xhtml">
+	<ui:define name="titulo">
+      Modificar Bicicleta
+</ui:define>
+	<ui:define name="contenido">
+		<p:messages id="Error" showDetail="true" autoUpdate="true"
+			closable="true" />
+		<p:fieldset>
+			<p:outputLabel value="Identificador:" for="identificadorIT" />
+			<h:inputText id="identificadorIT"
+				value="#{bicicletaBean.identificador}" required="true"
+				requiredMessage="Por favor ingrese el identificador" />
+			<p:outputLabel value="Estación:" for="estacionSO" />
+			<h:selectOneMenu id="estacionSO" value="#{bicicletaBean.estacion}"
+				required="true" requiredMessage="Por favor ingrese la estación">
+				<f:converter converterId="estacionConverter" />
+				<f:selectItems value="#{bicicletaBean.estaciones}" />
+			</h:selectOneMenu>
+
+			<p:outputLabel value="Estado:" for="estadoSO" />
+			<h:selectOneMenu id="estadoSO" value="#{bicicletaBean.estado}"
+				required="true" requiredMessage="Por favor ingrese un estado">
+				<f:selectItems value="#{bicicletaBean.estados}" />
+			</h:selectOneMenu>
+			<br />
+			<p:outputLabel value="Fecha de Ingreso: (dd-MM-yyyy)"
+				for="fechaIngresoIT" />
+			<p:inputText id="fechaIngresoIT"
+				value="#{bicicletaBean.fechaDeIngreso}">
+				<f:convertDateTime id="converDT" pattern="dd-MM-yyyy" />
+			</p:inputText>
+			<p:commandButton id="submit" value="Registrar"
+				action="#{bicicletaBean.modificar}">
+			</p:commandButton>
+		</p:fieldset>
+	</ui:define>
+</ui:composition>

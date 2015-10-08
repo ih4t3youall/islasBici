@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js" ></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-darkness/jquery-ui.css" />
+    <h:outputScript name="js/jquery.js" />
+    <h:outputScript name="js/script.js" />
+    
+	<title><ui:insert name="titulo">
+				Titulo general
+			</ui:insert></title>
+</h:head>
+<h:body>
+<h:panelGroup layout="block" class="menuYContenido">
+		<h:form>
+			<h:panelGroup layout="block" class="menu">
+				<p:menubar id="menuBar">
+					<p:menuitem value="Datos de la Cuenta"
+						outcome="/faces/modificarUsuario.xhtml" />
+					<p:menuitem value="Administracion de Usuarios"
+						outcome="/faces/adminPages/administrarUsuarios.xhtml" />
+					<p:menuitem value="Administracion de Estaciones"
+						outcome="/faces/adminPages/administrarEstaciones.xhtml" />
+					<p:menuitem value="Administracion de Cicicletas"
+						outcome="/faces/adminPages/administrarBicicletas.xhtml" />
+					<p:menuitem id="menuLoguot" action="#{login.logout}" value="Salir"
+						icon="ui-icon-extlink" />
+				</p:menubar>
+			</h:panelGroup>
+		</h:form>
+		<h:form>
+
+			<h:panelGroup layout="block" class="contenido">
+				<ui:insert name="contenido" />
+			</h:panelGroup>
+		</h:form>
+	</h:panelGroup>
+
+</h:body>
+</html>

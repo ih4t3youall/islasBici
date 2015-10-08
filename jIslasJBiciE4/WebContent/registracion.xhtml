@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/simpleLayout.xhtml">
+	<ui:define name="titulo">
+      Registrar Usuario
+</ui:define>
+
+	<ui:define name="contenido">
+		<p:messages id="Error" showDetail="true" autoUpdate="true"
+			closable="true" />
+		<p:fieldset>
+			<p:outputLabel value="Nombres:" for="nombreIT" />
+			<h:inputText id="nombreIT" value="#{registracion.nombre}"
+				required="true" requiredMessage="Por favor ingrese su nombre" />
+			<p:outputLabel value="Apellido:" for="apellidoIT" />
+
+			<h:inputText id="apellidoIT" value="#{registracion.apellido}"
+				required="true" requiredMessage="Por favor ingrese su apellido" />
+			<br />
+			<p:outputLabel value="DNI:" for="dniIT" />
+			<h:inputText id="dniIT" value="#{registracion.dni}" required="true"
+				requiredMessage="Por favor ingrese su DNI" pt:type="number"
+				pt:min="0" pt:max="10" pt:step="2">
+				<f:validateLength maximum="8" minimum="6" />
+			</h:inputText>
+			<p:outputLabel value="Nombre de Usuario:(para ingresar al sistema)"
+				for="userNameIT" />
+			<h:inputText id="userNameIT" value="#{registracion.userName}"
+				required="true"
+				requiredMessage="Por favor ingrese su nombre de Usuario">
+				<f:validator validatorId="noRepetido"></f:validator>
+			</h:inputText>
+			<br />
+			<p:outputLabel value="Teléfono:" for="telefonoIT" />
+			<h:inputText id="telefonoIT" value="#{registracion.telefono}"
+				validatorMessage="Formato de Teléfono Invalido">
+				<f:validateRegex pattern="^(\d)*$" />
+
+			</h:inputText>
+			<p:outputLabel value="Domicilio:" for="domicilioIT" />
+			<h:inputText id="domicilioIT" value="#{registracion.domicilio}" />
+			<br />
+
+			<p:outputLabel value="Sexo:" for="sexoSO" />
+			<h:selectOneMenu id="sexoSO" value="#{registracion.sexo}">
+				<f:selectItems value="#{registracion.sexos}" />
+			</h:selectOneMenu>
+			<br />
+			<p:outputLabel value="Fecha de Nacimiento: (dd-MM-yyyy)"
+				for="fechaNacimietoIT" />
+			<p:inputText id="fechaNacimietoIT"
+				value="#{registracion.fechaDeNacimiento}">
+				<f:convertDateTime id="converDT" pattern="dd-MM-yyyy" />
+			</p:inputText>
+			<p:outputLabel value="E-mail:" for="emailIT" required="true" />
+			<p:inputText id="emailIT" value="#{registracion.eMail}"
+				requiredMessage="Por favor ingrese su correo electronico"
+				validatorMessage="Formato de Email Invalido">
+				<f:validateRegex
+					pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+			</p:inputText>
+
+			<p:commandButton id="submit" value="Registrar"
+				action="#{registracion.registrar}">
+			</p:commandButton>
+		</p:fieldset>
+	</ui:define>
+</ui:composition>
